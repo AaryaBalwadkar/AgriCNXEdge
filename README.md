@@ -9,7 +9,7 @@ Monorepo for college GitHub submission. One repo, full continuation history:
 
 | Path | Source (old folder) | What it is |
 |---|---|---|
-| `web/` | `agricnxedge-web-v2` (73 files, git `main`) | FastAPI + ONNX Runtime + React/Vite + Docker + K8s + Prometheus/Grafana + Ansible + CI (`ci-cd.yml`). Canonical web copy (older `BTechProjectmodels/agricnxedge-web` discarded except diff-check). |
+| `web/` | `agricnxedge-web-v2` (73 files, git `main`) | FastAPI + ONNX Runtime + React/Vite + Docker + K8s + Prometheus/Grafana + Ansible. Canonical web copy (older `BTechProjectmodels/agricnxedge-web` discarded; CI workflow excluded — submission only, screenshots kept as evidence). |
 | `sem6-pbl-agroscan/` | `Agroscan/` | Sem 6 PBL. `Green_Apple_Data_Processing.ipynb` + `ai-model/` (17 `.py`, `data_prep/`, `architecture.md`, `README.md`). Excludes `data/`, `final_dataset/` (5.6 GB), `dinov3/` vendor, weights. |
 | `sem7-proposed-model/` | `BTechProjectmodels/Proposed Model/` | Canonical Sem 7 model (hash `98AF…`). 10 `.py` + `outputs/*.csv` + `student/*.json,*.pdf`. Excludes `*.onnx` (122–126 MB), `checkpoints/best_model.pth`. |
 | `sem7-ablation-study/` | `BTechProject/` (renamed) + `BTechProjectmodels/Ablation/`, `Ablation Frozen Backbone/` | Ablation-variant code (hash `0B44…`, differs from proposed). 12 root `.py`, `scripts/`, `old/` legacy teachers, `not_used/` (Blotch/Scab pairs), `evidence/` (small json/csv/yaml/png only), `ablation-configs/`. Excludes venv, `models-*.zip` (9.6 GB), weights. |

@@ -1,8 +1,10 @@
 # Crop Health MLOps — ONNX Inference Platform
 
-[![CI](https://github.com/AaryaBalwadkar/crop-health-mlops/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/AaryaBalwadkar/crop-health-mlops/actions)
+> Submission note: CI/CD workflow files from the original DevOps exercise are intentionally
+> excluded from this submission repo. The lab screenshots under `docs/screenshots/` are kept
+> as evidence; there is no live workflow in this repo.
 
-FastAPI + ONNX Runtime API serving a 126MB crop-health model (leaf, pest, fruit + yield boxes), with a React + Vite UI and a complete MLOps loop: CI/CD, Ansible, Docker, Kubernetes manifests, and Prometheus + Grafana monitoring.
+FastAPI + ONNX Runtime API serving a 126MB crop-health model (leaf, pest, fruit + yield boxes), with a React + Vite UI and Ansible, Docker, Kubernetes manifests, and Prometheus + Grafana monitoring.
 
 ## Overview
 
@@ -14,7 +16,7 @@ A single ONNX model runs 512×512 inference on CPU. The backend serves both the 
 * Single-origin serving: UI and `/api` on the same port
 * Prometheus metrics (`/api/metrics`) with Grafana dashboards
 * Health and readiness probes shared by Compose and Kubernetes
-* CI-gated builds with a production deploy kept behind an explicit flag
+* Manual builds with a seeded deploy path for throwaway VMs
 
 ## Architecture
 
@@ -22,7 +24,6 @@ A single ONNX model runs 512×512 inference on CPU. The backend serves both the 
 Browser → Nginx (:80) → Vite dist (/) + FastAPI 127.0.0.1:8000 (/api/)
 FastAPI → InferenceService → adc_student_full.onnx (CPU) → leaf / pest / fruit + boxes
 FastAPI → /api/metrics → Prometheus :9090 → Grafana :3000
-CI: GitHub Actions build-test → (gated) SSH deploy
 VM: Ansible apt / nginx / systemd / swap → seed code + dist + model → systemctl restart
 ```
 
@@ -31,7 +32,6 @@ VM: Ansible apt / nginx / systemd / swap → seed code + dist + model → system
 | UI | React 19 + Vite |
 | API | FastAPI + Uvicorn |
 | Inference | ONNX Runtime (CPU), Pillow, NumPy |
-| CI/CD | GitHub Actions |
 | Config management | Ansible |
 | Containers | Docker, Docker Compose |
 | Orchestration | Kubernetes manifests (kind-ready) |
@@ -49,7 +49,6 @@ VM: Ansible apt / nginx / systemd / swap → seed code + dist + model → system
 | Routes (`health`, `model/status`, `predict`, `metrics`) | `backend/app/api/routes.py` |
 | Inference service | `backend/app/services/inference.py` |
 | Settings | `backend/app/core/config.py` |
-| CI pipeline | `.github/workflows/ci-cd.yml` |
 | Ansible playbook | `ansible/playbook.yml` |
 | GCP inventory template | `ansible/inventory.gcp.ini` |
 | Systemd unit template | `ansible/templates/agricnxedge-api.service.j2` |
@@ -58,7 +57,7 @@ VM: Ansible apt / nginx / systemd / swap → seed code + dist + model → system
 | Local monitoring stack | `docker-compose.yml` |
 | K8s manifests | `k8s/` |
 | Prometheus + Grafana config | `monitoring/` |
-| GCP helpers | `scripts/gcp-trackb.ps1`, `scripts/gcp-trackb.bat`, `scripts/deploy-trackb.sh` |
+| GCP helpers | `scripts/gcp-trackb.ps1`, `scripts/deploy-trackb.sh` |
 | Model (gitignored, 126MB) | `backend/models/adc_student_full.onnx` |
 
 The model file is never committed. It is injected at runtime via a mounted volume, `scp`, or object storage.
@@ -115,10 +114,10 @@ kubectl -n agricnxedge port-forward svc/agricnxedge-api 8000:80
 
 Free-tier combo only: `us-central1`, `e2-micro`, 30GB `pd-standard`.
 
-Create the VM (CMD):
+Create the VM (PowerShell):
 
-```bat
-scripts\gcp-trackb.bat create
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\gcp-trackb.ps1 -Project crop-health-demo -Zone us-central1-a -Action create
 ```
 
 Copy the printed IP into `ansible/inventory.gcp.ini`, then run Ansible from WSL2 Ubuntu:
@@ -137,19 +136,19 @@ http://<VM_IP>/api/health
 http://<VM_IP>/api/model/status
 ```
 
-Delete the same day (CMD):
+Delete the same day (PowerShell):
 
-```bat
-scripts\gcp-trackb.bat delete
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\gcp-trackb.ps1 -Project crop-health-demo -Zone us-central1-a -Action delete
 ```
 
 ## Screenshots
 
-### CI
+### Lab evidence (workflow excluded from this submission)
 
 ![CI build and test](docs/screenshots/S1-actions-build-test.png)
 
-GitHub Actions `build-test`: backend `pytest` plus the Vite production build.
+Archived evidence from the original DevOps exercise: backend `pytest` plus the Vite production build. The workflow file itself is not part of this submission repo.
 
 ### Ansible provisioning
 
@@ -201,11 +200,7 @@ Get-ExecutionPolicy is not recognized as an internal or external command
 
 Cause: the command ran in CMD, which has no PowerShell cmdlets and hands `.ps1` files to Notepad.
 
-Fix: in CMD use the batch wrapper; in PowerShell bypass the policy once:
-
-```bat
-scripts\gcp-trackb.bat create
-```
+Fix: run the script in PowerShell with a one-time policy bypass:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\gcp-trackb.ps1 -Project crop-health-demo -Zone us-central1-a -Action create
@@ -320,7 +315,7 @@ Fix: start Docker Desktop and re-run `docker build` plus `docker compose up --bu
 * **Single-origin serving.** FastAPI serves the Vite build and the API on one port, removing CORS configuration from every deployment target.
 * **Model outside git.** The 126MB artifact stays out of version control and the container image, keeping the image under free registry limits. It arrives via volume, `scp`, or object storage.
 * **Ansible for OS, API calls for cloud.** Ansible owns everything inside the machine (packages, users, Nginx, systemd, swap). Cloud objects (VM, firewall, registry, revisions) belong to `gcloud`/Terraform — Ansible cannot deploy serverless targets.
-* **SSH deploy is intentionally gated.** The CI `deploy` job stays skipped behind `ENABLE_DEPLOY` until a permanent server with stored secrets exists. Throwaway VMs use the seeded `scp` path instead, which also sidesteps the 1GB build bottleneck.
+* **Manual deploy for throwaway VMs.** There is no live deploy job in this submission repo. Throwaway VMs use the seeded `scp` path (`scripts/deploy-trackb.sh`), which also sidesteps the 1GB build bottleneck.
 * **One health endpoint everywhere.** `/api/health` backs the Docker healthcheck and the Kubernetes liveness/readiness probes.
 
 ## Cost note
