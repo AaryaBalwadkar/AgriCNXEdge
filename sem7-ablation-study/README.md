@@ -1,10 +1,17 @@
-# Sem 7 — Ablation Study (renamed BTechProject)
+# Semester 7 — ablation experiments (renamed BTechProject)
 
-Source: `BTechProject/` (root code hash `0B44…` = ablation variant) + `BTechProjectmodels/Ablation/` +
-`Ablation Frozen Backbone/` (configs only).
-Kept: 12 root `.py`, `run_ablations.sh`, `scripts/` (aggregate + runner), `old/` (legacy teachers),
-`not_used/` (Blotch/Scab pairs), `evidence/` (small `json/csv/yaml/png` from `outputs/` + `runs/` curves),
-`ablation-configs/` (A/B/C/D + frozen training histories).
-Excluded: `venv/`, `models-*.zip` (9.6 GB), extracted `models-*/` dups, `*.pt/*.pth/*.onnx`, val-batch jpgs,
-absolute-path YAMLs (see `../MISSING_FILES.md` C10).
-Aggregate: `python scripts/aggregate_results.py`; plot: `python plot_yield_ablation.py`.
+The experiment track: an earlier model variant plus every ablation run
+(`BTechProject/`, `Ablation/` and `Ablation Frozen Backbone/` in the old folders).
+
+- The twelve root Python files and `run_ablations.sh`.
+- `scripts/` — result aggregation and the ablation runner.
+- `old/` — the earlier teacher-training code this grew out of.
+- `not_used/` — held-out Blotch/Scab image pairs.
+- `evidence/` — small result files only (training logs, summaries, dataset configs,
+  evaluation curves) from `outputs/` and `runs/`. Large weights and images are on Drive.
+- `ablation-configs/` — per-configuration training histories (A: no distillation,
+  B: static weights, C: no LoRA, D: no warmup, plus frozen-backbone).
+
+Aggregate: `python scripts/aggregate_results.py`. Plot: `python plot_yield_ablation.py`.
+Note: some dataset configs contain absolute paths from the training machine
+(see `../KNOWN-GAPS.md`, C10). Checkpoints: `DATA_SETUP.md`, `01-Weights/ablation/`.

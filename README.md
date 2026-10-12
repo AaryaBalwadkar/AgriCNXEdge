@@ -1,72 +1,130 @@
-# AgriCNXEdge — Unified BTech Project (Sem 6 PBL → Sem 7 BTech Project)
+# AgriCNXEdge — BTech Project (Semester 6 PBL continued in Semester 7)
 
-Monorepo for college GitHub submission. One repo, full continuation history:
-**Sem 6 PBL (Agroscan)** → **Sem 7 proposed multi-task edge model** → **ablation study** → **Android app** → **MLOps web service** → **research paper**.
+Edge-AI system for apple crop health: one model that classifies leaf disease, fruit
+disease and pests, and counts fruit (yield), running on a phone (Android app) and on a
+server (web API). The work started as the Semester 6 project-based-learning project
+(Agroscan) and was continued and completed as the Semester 7 BTech project.
 
-> Large binaries (>100 MB) are intentionally NOT in git. See `DATA_SETUP.md` for where to download them and where to place them locally. See `MISSING_FILES.md` for every missing/broken file and its manual fix.
+This repository holds the complete code, the Android app, the web service, the research
+paper draft with all figures and figure scripts, and the small result files (tables,
+training logs, evaluation summaries). Large files — trained models, datasets and
+videos — are stored on Google Drive (link below) because GitHub does not accept files
+over 100 MB. `DATA_SETUP.md` lists every large file and exactly where to place it.
 
-## Repo map
+Drive: https://drive.google.com/drive/folders/1ZAEEz724iC9ZOZ7GiSSvtMCLUDnvcTqx?usp=sharing
 
-| Path | Source (old folder) | What it is |
-|---|---|---|
-| `web/` | `agricnxedge-web-v2` (73 files, git `main`) | FastAPI + ONNX Runtime + React/Vite + Docker + K8s + Prometheus/Grafana + Ansible. Canonical web copy (older `BTechProjectmodels/agricnxedge-web` discarded; CI workflow excluded — submission only, screenshots kept as evidence). |
-| `sem6-pbl-agroscan/` | `Agroscan/` | Sem 6 PBL. `Green_Apple_Data_Processing.ipynb` + `ai-model/` (17 `.py`, `data_prep/`, `architecture.md`, `README.md`). Excludes `data/`, `final_dataset/` (5.6 GB), `dinov3/` vendor, weights. |
-| `sem7-proposed-model/` | `BTechProjectmodels/Proposed Model/` | Canonical Sem 7 model (hash `98AF…`). 10 `.py` + `outputs/*.csv` + `student/*.json,*.pdf`. Excludes `*.onnx` (122–126 MB), `checkpoints/best_model.pth`. |
-| `sem7-ablation-study/` | `BTechProject/` (renamed) + `BTechProjectmodels/Ablation/`, `Ablation Frozen Backbone/` | Ablation-variant code (hash `0B44…`, differs from proposed). 12 root `.py`, `scripts/`, `old/` legacy teachers, `not_used/` (Blotch/Scab pairs), `evidence/` (small json/csv/yaml/png only), `ablation-configs/`. Excludes venv, `models-*.zip` (9.6 GB), weights. |
-| `teachers/` | `BTechProjectmodels/PDDD Fruit 1/`, `PDDD Fruit 3 and PDDD Leaf 1/`, `PDDD Pest 1/`, `YOLO26s apple 1/2/3/` | Teacher code + small meta only (`*.py,*.txt,*.yaml,*.json,*.csv`). Excludes `data/` images/labels bulk, `*.pt/weights`, val-batch jpgs. |
-| `android-app/` | `BTechProjectmodels/AgriCNXEdge/` | Kotlin app source (`app/src/main/java`, `res`, gradle scripts). Excludes `build/`, `.gradle/`, `.idea/`, `.kotlin/`, `local.properties`, `assets/*.onnx`, `bench/` bulk. |
-| `research/` | `BTechProjectmodels/` papers + tex + figures + scripts | `papers/` (4 ref PDFs), `journal-submission/main.tex`, `elsarticle/`, `paper_figures/` (pdf+png+tikz+captions; tif/print/green_ov bulk excluded), `figure-scripts/phase*.py` (12), `evaluation/` (parity + phase2 json/csv/pdf; overlays bulk excluded), `archive/` (IEEE template + early draft). |
-| `docs/` | `BTechProjectmodels/*.docx,*.png` | Ontology, Patent Annexure II, mobile screenshots. Videos NOT in git (see DATA_SETUP.md). |
-| `archive/` | `E:\Projects\dataset.py,model.py,train.py` + `bunniex-agricnxedge` meta | Early prototype (broken imports, see MISSING_FILES.md) + hackathon fork docs only (code was exact duplicate of Proposed Model, hash-verified, not re-copied). |
+## What's inside
 
-## What was deduplicated (repetitive files, no changes)
+### `sem6-pbl-agroscan/` — Semester 6 PBL (Agroscan)
+The starting point: green-apple disease data preparation and the first multi-task model.
+- `Green_Apple_Data_Processing.ipynb` — notebook that renames, checks, measures and
+  augments the raw green-apple images (runs on Google Drive data).
+- `ai-model/` — the Sem 6 training code: model (`backbone.py`, `heads.py`, `model.py`),
+  data loading (`dataset.py`, `config.py`), losses (`losses.py`), training and evaluation
+  (`train.py`, `evaluate.py`, `evaluate_yield.py`), export and quantization
+  (`export.py`, `export2.py`, `convert_ort.py`, `quantize.py`), plus design notes
+  (`architecture.md`, `README.md`).
+- `ai-model/data_prep/` — the eight dataset preparation scripts with their run logs.
+- Needs from Drive to run: `final_dataset/` and the DINOv3 backbone weights
+  (see `DATA_SETUP.md`). The raw `data/` folder is not needed — every image it holds
+  is already contained in `final_dataset/`.
 
-- `BTechProject/models/` (live, 409 files, 0.30 GB) == `BTechProject/models-20261012T041829Z-1-004/models/` → kept once (as evidence meta only, bulk excluded). Other `models-*.zip` + extracted dups (`034147Z-1-001`, `041829Z-1-001`, `041829Z-1-003`) NOT copied — richest backup is `041829Z-1-001`; see DATA_SETUP.md.
-- `venv/` (2.18 GB) + `venv-*.zip` (1.48 GB) + empty `venv-*/` extract → none copied. Use `requirements-ml.txt` + `web/backend/requirements.txt`.
-- `bunniex-agricnxedge/ai-model/*.py` == `Proposed Model/*.py` (10/10 SHA256 identical) → not re-copied; only `*.md` kept in `archive/bunniex-meta/`.
-- `BTechProjectmodels/agricnxedge-web/` (older) superseded by `web/` (v2) → not copied.
-- `conference_101719.tex` is untouched IEEE template → moved to `research/archive/`, not a paper.
-- `New Ablation/` was empty → not copied.
-- `model_fp32.with_runtime_opt.ort` (0 bytes, broken) → not copied.
+### `sem7-proposed-model/` — Semester 7 final model (canonical version)
+The final proposed student model that the paper, app and web service all use.
+- The ten training files (`student_backbone.py`, `student_config.py`,
+  `student_dataset.py`, `student_loss.py`, `student_model.py`, `student_train.py`,
+  `run_student.py`, `verify_backbone.py`, `convert_fruit_annotations.py`, `test.py`).
+- `outputs/` — the four teacher soft-label tables used for training.
+- `student/` — training history, evaluation summary and the four result charts.
+- Needs from Drive to run or serve: `adc_student_full.onnx`,
+  `checkpoints/best_model.pth`, the `data/` images and the DINOv3 weights.
 
-## Quickstart
+### `sem7-ablation-study/` — ablation experiments (renamed BTechProject)
+The experiment track: an earlier model variant plus every ablation run.
+- The twelve root Python files and `run_ablations.sh` (same roles as above, older variant).
+- `scripts/` — result aggregation and the ablation runner.
+- `old/` — the legacy teacher-training code it grew out of.
+- `not_used/` — the held-out Blotch/Scab image pairs.
+- `evidence/` — small result files only (training logs, summaries, dataset configs,
+  evaluation curves) from all `outputs/` and `runs/`.
+- `ablation-configs/` — per-configuration training histories (A: no distillation,
+  B: static weights, C: no LoRA, D: no warmup, plus frozen-backbone).
+- Needs from Drive to retrain: the ablation checkpoints in `01-Weights/ablation/`
+  and the `02-Datasets/sem7-data/` images.
+
+### `teachers/` — teacher models
+The pretrained teachers the student learns from: PDDD fruit/leaf/pest classifiers and
+three YOLO apple-detection runs. Code and small config files only; training images and
+teacher weight files live on Drive.
+
+### `android-app/` — Android application
+The Kotlin phone app source (camera, on-device inference, results UI, benchmark
+harness) with build scripts. Includes the small benchmark photo sets with their
+manifests. Needs from Drive: `adc_student_full.onnx` placed in
+`app/src/main/assets/`.
+
+### `web/` — web API and deployment
+FastAPI server (serves the model and the UI from one port), React UI, Dockerfile,
+Kubernetes manifests, Prometheus/Grafana monitoring configs, Ansible playbooks and
+setup guides. Includes lab screenshots as evidence. Needs from Drive:
+`adc_student_full.onnx` placed in `backend/models/`, then `pip install` / `npm install`
+generate the remaining runtime folders.
+
+### `research/` — paper and figures
+- `papers/` — four reference papers.
+- `journal-submission/main.tex` (+ PDF and figures) — the journal submission draft.
+  Some fields (reviewers, dataset links, DOI) are still marked TO-BE-INSERTED.
+- `elsarticle/` — the Elsevier working-paper copy.
+- `paper_figures/` — all sixteen figures (PDF + PNG), TikZ sources and captions.
+  Print-resolution TIFFs and bulk overlays are on Drive (`05-Paper-Supplementary/`).
+- `figure-scripts/` — the twelve scripts that compute and draw every figure.
+- `evaluation/` — parity check tables and the full phase-2 evaluation results.
+- `archive/` — the untouched IEEE template and an early draft (not papers).
+
+### `docs/` — college documents
+Ontology document, Patent Annexure II, phone screenshots and demo-link list
+(`DEMO_LINKS.md`; videos stay on Drive).
+
+### `archive/` — early material, kept for record
+The first prototype (`dataset.py`, `model.py`, `train.py`) and the hackathon fork's
+notes. The fork's code was identical to the final model, so only its documents are kept.
+
+## How to run
 
 ```bash
-# 1. clone + setup data (see DATA_SETUP.md for Drive links)
-git clone <YOUR-REPO-URL> AgriCNXEdge
+git clone <YOUR-PRIVATE-REPO-URL> AgriCNXEdge
 cd AgriCNXEdge
+# fetch the Drive folders listed in DATA_SETUP.md first (models need 01-Weights,
+# training needs 02-Datasets, videos are in 04-Videos-Demo)
 
-# 2a. Web (needs backend/models/adc_student_full.onnx — see DATA_SETUP.md)
+# Web API + UI
 cd web
 python -m venv .venv && .\.venv\Scripts\activate
 pip install -r backend/requirements.txt
 pytest backend/tests -q
-uvicorn app.main:app --reload --port 8000   # from web/backend
-cd frontend && npm install && npm run dev
+cd backend && uvicorn app.main:app --reload --port 8000
+cd ../frontend && npm install && npm run dev
 
-# 2b. ML (proposed model, needs weights/ + data/ — see DATA_SETUP.md)
+# Final model (needs Drive weights + data)
 pip install -r requirements-ml.txt
 python sem7-proposed-model/verify_backbone.py
 python sem7-proposed-model/run_student.py --help
 
-# 2c. Figures (CPU-only, no weights needed for most)
+# Paper figures that need no weights
 python research/figure-scripts/phase1_figures.py --help
 python research/figure-scripts/phase2_eval.py --preflight-only
 ```
 
-## GitHub push
+## How to submit
+
+The repository is already a git repo (branch `main`). To publish it as a private
+submission repo and link the Drive:
 
 ```bash
 cd E:\Projects\AgriCNXEdge
-git init -b main
-git add .
-git commit -m "AgriCNXEdge unified: sem6 PBL + sem7 proposed + ablation + app + web + research"
 gh repo create AgriCNXEdge --private --source=. --remote=origin --push
-# college wants public? then --public. Add Drive link to repo About + README.
 ```
 
-## Status / known gaps
-
-- All items in `MISSING_FILES.md` §A–D are intentional gaps you fill manually (weights, datasets, `.env`, DOI/URLs, SSH IPs).
-- `web/scripts/gcp-trackb.bat` does not exist upstream (only `.ps1`/`.sh`) — README in `web/` references it; either create it or edit `web/README.md`.
-- Do NOT force-push `web/.git` history — this is a fresh unified repo. Old `agricnxedge-web-v2/.git` (branches `main`, `group10-ca2-submission`, remotes `origin/crop-health-mlops`, `fork-origin/DevOps-CA2_2023_27`) is preserved in the old folder.
+Then add the Drive link (`AgriCNXEdge-Drive`, URL at the top) to the repo's About
+section, and paste the repo URL into `research/journal-submission/main.tex`
+(Code Availability). Open issues: see `KNOWN-GAPS.md`.

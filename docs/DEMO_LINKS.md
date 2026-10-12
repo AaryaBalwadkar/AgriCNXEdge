@@ -1,24 +1,20 @@
-# Demo / dataset links
+# Demo and data links
 
-(Submits with the private repo. Videos stay on Drive — never commit `*.mp4`.)
+Videos and large files stay on Drive — never commit `*.mp4` or model/dataset files.
 
-## Drive folders (verified public 2026-10-12)
+## Shared Drive (upload in progress)
 
-- `BTechProject` (code mirror + `models/`, `outputs/`, `yolo26*.pt`):
-  https://drive.google.com/drive/folders/1VIScZ5jnB5VhGMnVm5VQ7MXNPC1VJz2t?usp=sharing
-- `data processing` (`data_prep/` + `final_dataset/`):
-  https://drive.google.com/drive/folders/1ZtoJ5zgvGNBjk-hyRmXoq7zuIMcQFILX?usp=sharing
-- `AgroScan_YOLO_Dataset` (`images/`, `labels/`, `data.yaml`):
-  https://drive.google.com/drive/folders/1pvbIe-2JHZnBBbQ7UGk_tXkEXw6H96WJ?usp=drive_link
+**AgriCNXEdge-Drive:** https://drive.google.com/drive/folders/1ZAEEz724iC9ZOZ7GiSSvtMCLUDnvcTqx?usp=sharing
 
-## Still needed from teammates (nothing found on Drive)
+- `01-Weights/` — all `.onnx` / `.pth` / `.pt` files (list in `DATA_SETUP.md`).
+- `02-Datasets/` — `final_dataset/`, `sem7-variants/`, `yolo/`.
+- `03-YOLO-Teacher-Weights/`, `04-Videos-Demo/`, `05-Paper-Supplementary/` — to be added.
 
-- `adc_student_full.onnx` (126,586,742 bytes, local: `BTechProjectmodels/Proposed Model/student/`) —
-  the deployable model for `web/backend/models/` and `android-app/.../assets/`. Highest priority.
-- `best_model.pth` (155,668,669 bytes, same local dir) — Drive only has `latest_checkpoint.pth`.
-- Demo videos: `BTechDemo.mp4`, `az_recorder_20260921_*.mp4` — add share links here when uploaded.
-- Agroscan sem6 weights: `checkpoints/best_model.pth`, `model_fp32.onnx` (only in `E:\Projects\Agroscan\newmodel\`).
+## Videos (to be uploaded to `04-Videos-Demo/`)
 
-## Screenshots (already in repo)
+- `BTechDemo.mp4`, `az_recorder_20260921_194127.mp4`, `az_recorder_20260921_194423.mp4`
+  (currently only in the old local folders).
+
+## Screenshots (already in this repo)
 
 `docs/MobileScreenshot1/2.png`, `web/docs/screenshots/` (lab evidence).

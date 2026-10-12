@@ -1,8 +1,15 @@
-# Sem 7 — Proposed Model (canonical)
+# Semester 7 — final model (the version everything uses)
 
-Source: `BTechProjectmodels/Proposed Model/` (SHA256 `student_model.py` = `98AF…`, differs from ablation `0B44…`).
-Kept: 10 `student_*.py` + `run_student.py` + `verify_backbone.py` + `convert_fruit_annotations.py` + `test.py`,
-`outputs/*.csv` (4 soft-label files), `student/*.json` + `q1_*.pdf`.
-Excluded: `student/*.onnx` (122–126 MB), `student/checkpoints/best_model.pth` — see `../DATA_SETUP.md` §A.
-Run: `pip install -r ../requirements-ml.txt` then `python verify_backbone.py`, `python run_student.py --help`.
-Eval/figs: `../research/figure-scripts/phase2_eval.py`, `phase4_*.py`.
+The final proposed student model (`Proposed Model` in the old folders). The paper, the
+app and the web service all use this version.
+
+- The ten training files (`student_backbone.py`, `student_config.py`,
+  `student_dataset.py`, `student_loss.py`, `student_model.py`, `student_train.py`,
+  `run_student.py`, `verify_backbone.py`, `convert_fruit_annotations.py`, `test.py`).
+- `outputs/` — the four teacher soft-label tables used in training.
+- `student/` — training history, evaluation summary and four result charts.
+
+Needs from Drive (`DATA_SETUP.md`): `adc_student_full.onnx`,
+`checkpoints/best_model.pth`, the `data/` images and the DINOv3 weights.
+Run: `pip install -r ../requirements-ml.txt`, then `python verify_backbone.py`.
+Figures: `../research/figure-scripts/phase2_eval.py`, `phase4_*.py`.

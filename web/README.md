@@ -58,7 +58,7 @@ VM: Ansible apt / nginx / systemd / swap → seed code + dist + model → system
 | K8s manifests | `k8s/` |
 | Prometheus + Grafana config | `monitoring/` |
 | GCP helpers | `scripts/gcp-trackb.ps1`, `scripts/deploy-trackb.sh` |
-| Model (gitignored, 126MB) | `backend/models/adc_student_full.onnx` |
+| Model (on Drive, 126MB, not committed) | `backend/models/adc_student_full.onnx` |
 
 The model file is never committed. It is injected at runtime via a mounted volume, `scp`, or object storage.
 
