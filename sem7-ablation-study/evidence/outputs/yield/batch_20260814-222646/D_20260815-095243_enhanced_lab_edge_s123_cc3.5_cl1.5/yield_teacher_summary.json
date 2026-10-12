@@ -1,0 +1,43 @@
+{
+  "model": "yolo26s.pt",
+  "best_checkpoint": "/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/outputs/yield/batch_20260814-222646/D_20260815-095243_enhanced_lab_edge_s123_cc3.5_cl1.5/yield_teacher/weights/best.pt",
+  "soft_labels_csv": "/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/outputs/yield/batch_20260814-222646/D_20260815-095243_enhanced_lab_edge_s123_cc3.5_cl1.5/yield_soft_labels.csv",
+  "test_metrics": {
+    "mAP50": 0.9040429958607602,
+    "mAP50_95": 0.7392575308981402,
+    "precision": 0.8346354895493588,
+    "recall": 0.8328606459620226
+  },
+  "per_size": {
+    "per_size_ap": {
+      "small": 0.7458738259361204,
+      "medium": 0.9089573912381568,
+      "large": 0.9632991137936852
+    },
+    "tp": {
+      "small": 1901,
+      "medium": 1820,
+      "large": 1660
+    },
+    "fp": {
+      "small": 18044,
+      "medium": 4004,
+      "large": 3410
+    },
+    "fn": {
+      "small": 33,
+      "medium": 0,
+      "large": 30
+    },
+    "total_gts": {
+      "small": 1934,
+      "medium": 1818,
+      "large": 1690
+    }
+  },
+  "imgsz": 640,
+  "conf_threshold": 0.2,
+  "iou_threshold": 0.45,
+  "enhancement": "lab_edge",
+  "experiment_dir": "/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/outputs/yield/batch_20260814-222646/D_20260815-095243_enhanced_lab_edge_s123_cc3.5_cl1.5"
+}

@@ -1,0 +1,5 @@
+Figs. 10/11/12. Confusion matrices for leaf (4 classes), pest (4 classes), and fruit (3 classes) on the val+test split. Fruit is evaluated on ground-truth-box ROIs (head diagnostic). Counts + row-normalised rates shown.
+
+Fig. 13. Predicted versus ground-truth apple counts on the 400-image yield validation set (confidence 0.3, NMS IoU 0.45). Pearson r, R^2, and mean signed error in phase2_results/<config>/yield_metrics.json.
+
+Figs. 14/15. Representative ground-truth (solid) versus predicted (dashed) apple boxes with per-image counts; overlays in phase2_results/<config>/overlays/.

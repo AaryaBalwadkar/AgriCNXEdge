@@ -1,0 +1,5 @@
+class,precision,recall,f1,support
+Apple_Mosaic,1.0,1.0,1.0,84
+Apple___Black_rot,0.9808,1.0,0.9903,102
+Alternaria,0.9896,1.0,0.9948,95
+Healthy,1.0,0.9912,0.9956,342

@@ -1,0 +1,116 @@
+%%{init: {'theme': 'base', 'themeVariables': {'background': 'transparent', 'primaryTextColor': '#000000', 'edgeLabelBackground': 'transparent', 'lineColor': '#2D3436', 'fontFamily': 'Arial'}, 'flowchart': {'curve': 'monotoneY'}}}%%
+flowchart TD
+    %% COLOR DEFINITIONS (Light backgrounds for Black Text visibility)
+    classDef default fill:#F1F2F6,stroke:#A4B0BE,stroke-width:2px,color:#000000,rx:8;
+    classDef teacher fill:#D6A2E8,stroke:#9B59B6,stroke-width:2px,color:#000000,rx:8;
+    classDef backbone fill:#7BED9F,stroke:#2ED573,stroke-width:2px,color:#000000,rx:8;
+    classDef head_container fill:#70A1FF,stroke:#1E90FF,stroke-width:2px,color:#000000,rx:8;
+    classDef sub_block fill:#DFE4EA,stroke:#747D8C,stroke-width:1px,color:#000000,rx:4;
+    classDef gt fill:#FFD32F,stroke:#FFA502,stroke-width:2px,color:#000000,rx:8;
+    classDef loss fill:#FF7F50,stroke:#FF6348,stroke-width:2px,color:#000000,rx:8;
+    classDef weighter fill:#A4B0BE,stroke:#747D8C,stroke-width:2px,color:#000000,rx:8;
+
+    %% INPUT
+    INP["Training Image<br>(512x512x3)"]:::default
+
+    %% TEACHER EXPERTS
+    subgraph Teachers [Cloud-Scale Teacher Ensemble]
+        direction LR
+        T_Leaf["Leaf Expert<br>(Soft Logits)"]:::teacher
+        T_Fruit["Fruit Expert<br>(Soft Logits)"]:::teacher
+        T_Pest["Pest Expert<br>(Soft Logits)"]:::teacher
+        T_Yield["Yield Expert<br>(Soft Heatmap)"]:::teacher
+    end
+
+    %% STUDENT MODEL
+    subgraph Student [Edge Student Model]
+        direction TB
+        BB["Frozen DINOv3 Backbone<br>(Self-Supervised Extractor)"]:::backbone
+        
+        %% CLASSIFICATION HEADS (Sub-boxes, no arrows inside)
+        subgraph ClsHeads [Decoupled Classification Heads x3]
+            direction TB
+            CR["Channel Reduction<br>Conv 1x1, BN, SiLU"]:::sub_block
+            
+            subgraph MBConv [MBConv Block]
+                direction TB
+                M1["Expand: Conv 1x1, BN, SiLU"]:::sub_block
+                M2["Depthwise: DWConv 3x3, BN, SiLU"]:::sub_block
+                M3["SE: AdaptivePool, Conv 1x1, SiLU, Conv 1x1, Sigmoid"]:::sub_block
+                M4["Project: Conv 1x1, BN"]:::sub_block
+                
+                %% No arrowheads for sub-blocks
+                M1 --- M2 --- M3 --- M4
+            end
+            
+            GAP["Classifier<br>GlobalAvgPool, Dropout, Linear"]:::sub_block
+            
+            CR --- M1
+            M4 --- GAP
+        end
+
+        %% YIELD HEAD (Sub-boxes, no arrows inside)
+        subgraph YieldHead [CenterPoint Yield Head]
+            direction TB
+            Stem["Stem<br>2x (DWConv 3x3, PWConv 1x1, BN, SiLU)"]:::sub_block
+            
+            subgraph YieldBranches [Dense Prediction Branches]
+                direction LR
+                HM["Heatmap<br>Conv 3x3, ReLU, Conv 1x1"]:::sub_block
+                WH["Width/Height<br>Conv 3x3, ReLU, Conv 1x1"]:::sub_block
+                OFF["Offset<br>Conv 3x3, ReLU, Conv 1x1"]:::sub_block
+            end
+            
+            Stem --- HM
+            Stem --- WH
+            Stem --- OFF
+        end
+    end
+
+    %% GROUND TRUTH
+    subgraph GT [Ground Truth Hard Targets]
+        direction LR
+        G_Leaf["Leaf Label"]:::gt
+        G_Fruit["Fruit Label"]:::gt
+        G_Pest["Pest Label"]:::gt
+        G_Yield["Yield Center, WH, Off"]:::gt
+    end
+
+    %% LOSS FUNCTIONS
+    subgraph Losses [Multi-Task Distillation Loss]
+        direction TB
+        L_CLS["Classification Loss<br>Focal Loss (vs GT) + KL Divergence (vs Teacher)"]:::loss
+        L_YLD["Yield CenterNet Loss<br>Modified Focal & L1 (vs GT) + MSE (vs Teacher)"]:::loss
+    end
+
+    %% WEIGHTER
+    HUW["Homoscedastic Uncertainty Weighter<br>(Dynamically Balances 4 Gradients)"]:::weighter
+    TotalLoss["Total Backprop Loss"]:::default
+
+    %% MACRO ROUTING (Arrows)
+    INP --> BB
+    
+    BB -->|"f4 Features (Stride 32)"| CR
+    BB -->|"f1 Features (Stride 4)"| Stem
+
+    GAP ---> L_CLS
+    T_Leaf & T_Fruit & T_Pest -.->|"Soft Targets (T=3.0)"| L_CLS
+    G_Leaf & G_Fruit & G_Pest -.->|"Hard Labels"| L_CLS
+
+    HM & WH & OFF ---> L_YLD
+    T_Yield -.->|"Teacher Heatmap"| L_YLD
+    G_Yield -.->|"GT Heatmap, WH, Offset"| L_YLD
+
+    L_CLS --> HUW
+    L_YLD --> HUW
+    HUW --> TotalLoss
+
+    %% STYLING MACRO SUBGRAPHS
+    style Teachers fill:transparent,stroke:#9B59B6,stroke-width:2px,stroke-dasharray: 5 5
+    style Student fill:transparent,stroke:#2ED573,stroke-width:2px,stroke-dasharray: 5 5
+    style GT fill:transparent,stroke:#FFA502,stroke-width:2px,stroke-dasharray: 5 5
+    style Losses fill:transparent,stroke:#FF6348,stroke-width:2px,stroke-dasharray: 5 5
+    style ClsHeads fill:#70A1FF,stroke:#1E90FF,stroke-width:2px
+    style YieldHead fill:#70A1FF,stroke:#1E90FF,stroke-width:2px
+    style MBConv fill:#DFE4EA,stroke:#747D8C,stroke-width:1px
+    style YieldBranches fill:#DFE4EA,stroke:#747D8C,stroke-width:1px

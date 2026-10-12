@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agricnxedge-api
+  namespace: agricnxedge
+  labels:
+    app: agricnxedge-api
+spec:
+  # kind single-node demo: 1 replica saves RAM. Scale to 2+ on real clusters.
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agricnxedge-api
+  template:
+    metadata:
+      labels:
+        app: agricnxedge-api
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/api/metrics"
+        prometheus.io/port: "8000"
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: api
+          # kind demo: build locally then `kind load docker-image agricnxedge-web:latest`
+          # GCP demo: replace with us-central1-docker.pkg.dev/<project>/agricnxedge/api:<tag>
+          image: agricnxedge-web:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8000
+          env:
+            - name: APP_ENV
+              value: production
+            - name: PORT
+              value: "8000"
+            - name: MODEL_PATH
+              value: models/adc_student_full.onnx
+            - name: CORS_ORIGINS
+              value: "*"
+          resources:
+            requests:
+              cpu: 250m
+              memory: 512Mi
+            limits:
+              cpu: "1"
+              memory: 2Gi
+          startupProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            failureThreshold: 12
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            periodSeconds: 10

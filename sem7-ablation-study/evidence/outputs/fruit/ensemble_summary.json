@@ -1,0 +1,64 @@
+{
+  "ensemble_seeds": [
+    42,
+    123,
+    456
+  ],
+  "class_names": [
+    "Anthracnose",
+    "Black Rot",
+    "Healthy"
+  ],
+  "per_seed_test_f1": {
+    "42": 0.8178679053264748,
+    "123": 0.8151417749407699,
+    "456": 0.8063150500064703
+  },
+  "mean_test_f1": 0.8131082434245717,
+  "per_seed_gate": {
+    "42": {
+      "Anthracnose": {
+        "f1": 0.6808510638297872,
+        "status": "UNSAFE"
+      },
+      "Black Rot": {
+        "f1": 0.7777777777777778,
+        "status": "SAFE"
+      },
+      "Healthy": {
+        "f1": 0.9949748743718593,
+        "status": "SAFE"
+      }
+    },
+    "123": {
+      "Anthracnose": {
+        "f1": 0.6666666666666666,
+        "status": "UNSAFE"
+      },
+      "Black Rot": {
+        "f1": 0.7837837837837838,
+        "status": "SAFE"
+      },
+      "Healthy": {
+        "f1": 0.9949748743718593,
+        "status": "SAFE"
+      }
+    },
+    "456": {
+      "Anthracnose": {
+        "f1": 0.6593406593406593,
+        "status": "UNSAFE"
+      },
+      "Black Rot": {
+        "f1": 0.7671232876712328,
+        "status": "SAFE"
+      },
+      "Healthy": {
+        "f1": 0.9924812030075187,
+        "status": "SAFE"
+      }
+    }
+  },
+  "soft_labels_csv": null,
+  "soft_label_format": "prob_0..C (averaged probabilities, use at T=1)"
+}

@@ -1,0 +1,27 @@
+# Teacher Model Training Requirements
+# Install with: pip install -r teacher_requirements.txt
+# Hardware target: RTX A4000 16GB, 128GB RAM, Intel Xeon, 512GB SSD
+
+# Core deep learning
+torch>=2.0.0          # CUDA 11.8 or 12.1 build recommended
+torchvision>=0.15.0
+
+# timm — needed to load ConvNeXt-Small (PDDD backbone)
+timm>=0.9.0
+
+# Augmentation — same library used in the original student code
+albumentations>=1.3.0
+
+# Metrics
+scikit-learn>=1.3.0
+numpy>=1.24.0
+
+# Perceptual hash deduplication (data cleaning)
+imagehash>=4.3.1
+Pillow>=9.0.0         # Already needed for image loading, must be >=9.0 for imagehash
+
+# Utilities
+tqdm>=4.65.0          # Optional: add tqdm to training loop if desired
+
+# Note: No separate requirements for matplotlib / seaborn here
+# Confusion matrices are generated in the visualisation scripts (existing codebase)

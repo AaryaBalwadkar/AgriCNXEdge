@@ -1,0 +1,16 @@
+{
+  "mode": "enhanced",
+  "seed": 42,
+  "clahe": {
+    "color_clip": 3.5,
+    "light_clip": 1.5,
+    "tile_grid": [
+      8,
+      8
+    ]
+  },
+  "enhancement": "lab_edge",
+  "data_root": "/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/yield_enhanced",
+  "yaml": "/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/outputs/yield/batch_20260814-222646/D_20260814-222646_enhanced_lab_edge_s42_cc3.5_cl1.5/yield_dataset.yaml",
+  "timestamp": "20260814-222646"
+}

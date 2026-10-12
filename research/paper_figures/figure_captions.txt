@@ -1,0 +1,11 @@
+Fig. 2. Dataset curation. Raw versus retained images per class after automated cleaning (minimum 64 px, pixel standard deviation >= 5.0, perceptual-hash deduplication threshold 8) for the (a) leaf, (b) pest, and (c) fruit classification teachers at 224-px input. Stratified 70/15/15 splits (seed 42); yield detection uses its own 1093/264 train/val split at 640-px input.
+
+Fig. 5. Best-validation-epoch snapshot of the proposed LoRA-adapted model (epoch 186). (a) Leaf, pest, and fruit validation accuracies against the 100% reference. (b) Apple counting MAE/RMSE on the 400-image yield validation set (confidence 0.3, NMS IoU 0.45). Single seed (n=1).
+
+Fig. 6. Frozen-backbone (best epoch 194, circles) versus proposed LoRA-adapted (best epoch 186, diamonds) configurations with paired deltas. LoRA adds +0.17 pp on leaf but loses 2.12 pp on fruit and adds +0.14/+0.38 counting error, motivating the ablation study. Single seed (n=1).
+
+Fig. 7. Training dynamics over 200 epochs (thin raw, thick 7-epoch smooth). (a) Mean training loss and homoscedastic-weighted total validation loss with best-validation epochs marked (186 proposed, 194 frozen). (b) Per-task validation accuracies (solid proposed, dashed frozen); fruit is the noisiest task. Single seed (n=1).
+
+Fig. 8. Learned homoscedastic task precisions exp(-s_t) for (a) proposed and (b) frozen configurations with best-epoch values annotated. Precisions are optimization coefficients balancing heterogeneous losses (single seed, n=1), not measures of task importance.
+
+Fig. 9. Component-level ablation at best-validation epochs. (a) Min-max-normalised radar (higher is better; errors inverted) and (b) exact values: No-KD (A) matches or beats the proposed model on every metric, while static weighting (B) collapses fruit accuracy. *B logged only 103/200 epochs and must be completed; all runs single-seed (n=1).

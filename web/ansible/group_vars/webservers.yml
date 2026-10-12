@@ -1,0 +1,12 @@
+app_name: agricnxedge-web
+app_user: agricnx
+app_dir: /opt/agricnxedge-web
+backend_port: 8000
+server_name: _
+# Same-origin via Nginx, so "*" is safe for IP-based test-and-drop.
+cors_origins: "*"
+python_version_package: python3-venv
+# e2-micro has 1GB RAM: 2GB swap prevents OOM on pip/npm + ONNX load.
+swap_size_mb: 2048
+repo_url: https://github.com/YOUR_ORG/agricnxedge-web-v2.git
+repo_version: main

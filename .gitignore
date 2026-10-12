@@ -1,0 +1,70 @@
+# ---> Python / ML
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+venv-*/
+weights/
+checkpoints/
+*.pth
+*.pt
+*.onnx
+*.ort
+*.tflite
+*.data
+saved_model_dir/
+
+# Datasets & large artifacts (see DATA_SETUP.md — link via Drive, do NOT commit)
+data/
+final_dataset/
+data_corrupted/
+outputs/yield/batch_*/
+runs/detect/val_batch*/
+*.mp4
+*.zip
+*.tif
+bench/
+bench_v2/
+green_ov/
+yolo_clean_v3/
+split/
+
+# ---> Web (mirrors web/.gitignore)
+web/backend/.venv/
+web/backend/__pycache__/
+web/backend/models/*.onnx
+web/backend/uploads/
+web/frontend/node_modules/
+web/frontend/dist/
+.env
+
+# ---> Android
+local.properties
+*.apk
+*.ap_
+.gradle/
+.idea/
+.kotlin/
+build/
+captures/
+*.hprof
+
+# ---> Papers / LaTeX build
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.spl
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+btech-project-*.json
+sunny-nebula*
+
+# ---> OS / editor
+.DS_Store
+Thumbs.db
+web/*.docx

@@ -1,0 +1,105 @@
+---
+- name: Configure AgriCNXEdge Web runtime
+  hosts: webservers
+  become: true
+  vars_files:
+    - group_vars/webservers.yml
+
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Install runtime packages
+      ansible.builtin.apt:
+        name:
+          - git
+          - nginx
+          - python3
+          - python3-pip
+          - python3-venv
+          - nodejs
+          - npm
+        state: present
+
+    - name: Create 2GB swap for e2-micro (1GB RAM)
+      ansible.builtin.shell:
+        cmd: |
+          set -e
+          if [ ! -f /swapfile ]; then
+            fallocate -l {{ swap_size_mb }}M /swapfile
+            chmod 600 /swapfile
+            mkswap /swapfile
+            swapon /swapfile
+            echo '/swapfile none swap sw 0 0' >> /etc/fstab
+          fi
+        creates: /swapfile
+      args:
+        executable: /bin/bash
+
+    - name: Create application user
+      ansible.builtin.user:
+        name: "{{ app_user }}"
+        system: true
+        create_home: true
+        shell: /bin/bash
+
+    - name: Create application directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: "{{ app_user }}"
+        group: "{{ app_user }}"
+        mode: "0755"
+      loop:
+        - "{{ app_dir }}"
+        - "{{ app_dir }}/backend"
+        - "{{ app_dir }}/backend/models"
+        - "{{ app_dir }}/frontend"
+
+    - name: Remove default Nginx site (avoid port 80 conflict)
+      ansible.builtin.file:
+        path: /etc/nginx/sites-enabled/default
+        state: absent
+      notify: Reload nginx
+
+    - name: Configure Nginx site
+      ansible.builtin.template:
+        src: templates/nginx-agricnxedge.conf.j2
+        dest: /etc/nginx/sites-available/agricnxedge-web
+        mode: "0644"
+      notify: Reload nginx
+
+    - name: Enable Nginx site
+      ansible.builtin.file:
+        src: /etc/nginx/sites-available/agricnxedge-web
+        dest: /etc/nginx/sites-enabled/agricnxedge-web
+        state: link
+      notify: Reload nginx
+
+    - name: Configure FastAPI systemd service
+      ansible.builtin.template:
+        src: templates/agricnxedge-api.service.j2
+        dest: /etc/systemd/system/agricnxedge-api.service
+        mode: "0644"
+      notify: Restart api
+
+    - name: Ensure Nginx is enabled and running
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+
+  handlers:
+    - name: Reload nginx
+      ansible.builtin.service:
+        name: nginx
+        state: reloaded
+
+    - name: Restart api
+      ansible.builtin.systemd:
+        name: agricnxedge-api
+        state: restarted
+        enabled: true
+        daemon_reload: true

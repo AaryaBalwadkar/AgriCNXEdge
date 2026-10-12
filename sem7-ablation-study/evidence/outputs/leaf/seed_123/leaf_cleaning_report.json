@@ -1,0 +1,38 @@
+{
+  "Apple_Mosaic": {
+    "too_small": 0,
+    "blank": 0,
+    "duplicate": 9,
+    "unreadable": 0,
+    "original_count": 631,
+    "cleaned_count": 622,
+    "removed_count": 9
+  },
+  "Apple___Black_rot": {
+    "too_small": 0,
+    "blank": 0,
+    "duplicate": 42,
+    "unreadable": 0,
+    "original_count": 621,
+    "cleaned_count": 579,
+    "removed_count": 42
+  },
+  "Alternaria": {
+    "too_small": 0,
+    "blank": 0,
+    "duplicate": 10,
+    "unreadable": 0,
+    "original_count": 631,
+    "cleaned_count": 621,
+    "removed_count": 10
+  },
+  "Healthy": {
+    "too_small": 0,
+    "blank": 0,
+    "duplicate": 124,
+    "unreadable": 0,
+    "original_count": 2276,
+    "cleaned_count": 2152,
+    "removed_count": 124
+  }
+}

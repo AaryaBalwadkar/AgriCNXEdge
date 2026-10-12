@@ -1,0 +1,5 @@
+Fig. 1. Student forward pass traced on a real validation image (apple_00784, 46 ground-truth boxes shown for illustration). The shared DINOv3-ConvNeXt-Tiny backbone routes fine-grained f1 to leaf, mid-scale f2 to pest, and fused P3 to detection, with ROI-Align crops of P3 feeding per-apple fruit classification. Training-only teacher supervision and losses are detailed in Fig. 4. Single-seed model, best-validation epoch 186.
+
+Fig. 3. Hierarchical feature routing. Stage shapes and frozen/LoRA status are as implemented; detection decoding uses confidence 0.3 and NMS IoU 0.45, with ground-truth boxes at train time and decoded boxes at inference.
+
+Fig. 4. (a) Heterogeneous knowledge distillation for one classification head, in the DINO two-tower style: teacher soft targets (T=1 CSVs) meet student logits in KL divergence alongside focal loss on hard labels; detection distills YOLO teacher boxes with a 0.5-weighted branch. (b) Two-phase training timeline with best-validation epochs and ONNX export. Single seed (n=1); early stopping patience 20.

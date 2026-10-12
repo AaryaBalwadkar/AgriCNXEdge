@@ -1,0 +1,15 @@
+{
+  "model": "yolo26s.pt",
+  "best_checkpoint": "/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/outputs/yield/yield_teacher/weights/best.pt",
+  "soft_labels_csv": "/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/outputs/yield/yield_soft_labels.csv",
+  "test_metrics": {
+    "mAP50": 0.9120103663555184,
+    "mAP50_95": 0.7500474339404087,
+    "precision": 0.8362077344609116,
+    "recall": 0.8382947445791988
+  },
+  "imgsz": 512,
+  "conf_threshold": 0.25,
+  "iou_threshold": 0.45,
+  "note": "json_boxes contains normalised XYXY [0,1]. Student converts to YOLO (cx,cy,w,h) internally. Use conf as objectness teacher signal."
+}

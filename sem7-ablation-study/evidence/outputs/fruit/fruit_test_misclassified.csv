@@ -1,0 +1,31 @@
+image_path,true_class,predicted_class,confidence
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Anthracnose/anthracnose_0012.jpg,Anthracnose,Black Rot,0.6488
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Anthracnose/anthracnose_0088.jpg,Anthracnose,Black Rot,0.7017
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Anthracnose/anthracnose_0225.jpg,Anthracnose,Black Rot,0.5759
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Anthracnose/anthracnose_0221.jpg,Anthracnose,Black Rot,0.6319
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Anthracnose/anthracnose_0222.jpg,Anthracnose,Black Rot,0.7237
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Anthracnose/anthracnose_0148.jpg,Anthracnose,Black Rot,0.7959
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Anthracnose/anthracnose_0146.jpg,Anthracnose,Black Rot,0.8636
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Anthracnose/anthracnose_0108.jpg,Anthracnose,Black Rot,0.8515
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Anthracnose/anthracnose_0147.jpg,Anthracnose,Black Rot,0.7744
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Anthracnose/anthracnose_0158.jpg,Anthracnose,Healthy,0.5704
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Anthracnose/anthracnose_0223.jpg,Anthracnose,Black Rot,0.7653
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0206.jpg,Black Rot,Anthracnose,0.7097
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0538.jpg,Black Rot,Anthracnose,0.5897
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0540.jpg,Black Rot,Anthracnose,0.5292
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0194.jpg,Black Rot,Anthracnose,0.5089
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0451.jpg,Black Rot,Anthracnose,0.5914
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0164.jpg,Black Rot,Anthracnose,0.7137
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0532.jpg,Black Rot,Anthracnose,0.8700
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0522.jpg,Black Rot,Anthracnose,0.7365
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0452.jpg,Black Rot,Anthracnose,0.7619
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0542.jpg,Black Rot,Anthracnose,0.7873
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0339.jpg,Black Rot,Anthracnose,0.8549
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0425.jpg,Black Rot,Anthracnose,0.5066
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0512.jpg,Black Rot,Anthracnose,0.6687
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0229.jpg,Black Rot,Anthracnose,0.5769
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0478.jpg,Black Rot,Anthracnose,0.6814
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0093.jpg,Black Rot,Anthracnose,0.8325
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0049.jpg,Black Rot,Anthracnose,0.5740
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Black Rot/black_rot_0157.jpg,Black Rot,Anthracnose,0.6128
+/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/data/fruit/Healthy/healthy_0005.jpg,Healthy,Black Rot,0.4493

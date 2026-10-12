@@ -1,0 +1,29 @@
+{
+  "Anthracnose": {
+    "too_small": 0,
+    "blank": 0,
+    "duplicate": 20,
+    "unreadable": 0,
+    "original_count": 295,
+    "cleaned_count": 275,
+    "removed_count": 20
+  },
+  "Black Rot": {
+    "too_small": 0,
+    "blank": 0,
+    "duplicate": 18,
+    "unreadable": 0,
+    "original_count": 542,
+    "cleaned_count": 524,
+    "removed_count": 18
+  },
+  "Healthy": {
+    "too_small": 0,
+    "blank": 0,
+    "duplicate": 91,
+    "unreadable": 0,
+    "original_count": 1424,
+    "cleaned_count": 1333,
+    "removed_count": 91
+  }
+}

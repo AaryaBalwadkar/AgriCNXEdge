@@ -1,0 +1,43 @@
+{
+  "model": "yolo26s.pt",
+  "best_checkpoint": "/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/outputs/yield/batch_20260815-151209/A_20260815-221107_original_lab_s123_cc3.5_cl1.5/yield_teacher/weights/best.pt",
+  "soft_labels_csv": "/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/outputs/yield/batch_20260815-151209/A_20260815-221107_original_lab_s123_cc3.5_cl1.5/yield_soft_labels.csv",
+  "test_metrics": {
+    "mAP50": 0.9139166703018137,
+    "mAP50_95": 0.752031564957414,
+    "precision": 0.8211384562900509,
+    "recall": 0.8621677586565955
+  },
+  "per_size": {
+    "per_size_ap": {
+      "small": 0.757812152842066,
+      "medium": 0.922353258013981,
+      "large": 0.9608798595082609
+    },
+    "tp": {
+      "small": 954,
+      "medium": 912,
+      "large": 830
+    },
+    "fp": {
+      "small": 7205,
+      "medium": 1913,
+      "large": 1322
+    },
+    "fn": {
+      "small": 13,
+      "medium": 0,
+      "large": 15
+    },
+    "total_gts": {
+      "small": 967,
+      "medium": 909,
+      "large": 845
+    }
+  },
+  "imgsz": 640,
+  "conf_threshold": 0.2,
+  "iou_threshold": 0.45,
+  "enhancement": "lab",
+  "experiment_dir": "/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/outputs/yield/batch_20260815-151209/A_20260815-221107_original_lab_s123_cc3.5_cl1.5"
+}

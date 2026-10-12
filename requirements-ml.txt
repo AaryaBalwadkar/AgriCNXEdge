@@ -1,0 +1,18 @@
+# ML requirements (CPU baseline; add CUDA builds as needed)
+torch
+torchvision
+timm
+albumentations
+opencv-python-headless
+scikit-learn
+matplotlib
+tqdm
+numpy
+Pillow
+onnx
+onnxruntime
+onnx2tf
+ultralytics
+imagehash
+pytest
+httpx

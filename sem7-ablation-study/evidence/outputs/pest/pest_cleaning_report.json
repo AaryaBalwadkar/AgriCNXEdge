@@ -1,0 +1,38 @@
+{
+  "xylotrechus": {
+    "too_small": 0,
+    "blank": 0,
+    "duplicate": 23,
+    "unreadable": 0,
+    "original_count": 319,
+    "cleaned_count": 296,
+    "removed_count": 23
+  },
+  "aphids": {
+    "too_small": 0,
+    "blank": 0,
+    "duplicate": 44,
+    "unreadable": 0,
+    "original_count": 314,
+    "cleaned_count": 270,
+    "removed_count": 44
+  },
+  "leafhoppers": {
+    "too_small": 0,
+    "blank": 0,
+    "duplicate": 6,
+    "unreadable": 0,
+    "original_count": 573,
+    "cleaned_count": 567,
+    "removed_count": 6
+  },
+  "spider_mite": {
+    "too_small": 0,
+    "blank": 0,
+    "duplicate": 28,
+    "unreadable": 0,
+    "original_count": 299,
+    "cleaned_count": 271,
+    "removed_count": 28
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "checkpoint": "E:\\Projects\\BTechProjectmodels\\Proposed Model\\student\\checkpoints\\best_model.pth",
+  "checkpoint_epoch": 186,
+  "out": "E:\\Projects\\BTechProjectmodels\\Proposed Model\\student\\adc_student_full.onnx",
+  "size_mb": 120.72,
+  "fruit_shape": [
+    2,
+    3
+  ],
+  "fruit_finite": true,
+  "parity_leaf_maxabs": 0.0,
+  "parity_pest_maxabs": 0.0,
+  "parity_det_maxabs": 0.0,
+  "smoke_image": "apple_00112.jpg",
+  "smoke_hot_cells": 0
+}

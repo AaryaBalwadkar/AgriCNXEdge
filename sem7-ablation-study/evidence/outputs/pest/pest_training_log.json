@@ -1,0 +1,623 @@
+{
+  "task_name": "pest",
+  "class_names": [
+    "xylotrechus",
+    "aphids",
+    "leafhoppers",
+    "spider_mite"
+  ],
+  "best_epoch": 27,
+  "best_val_macro_f1": 0.5667683499957277,
+  "test_accuracy": 0.5598086124401914,
+  "test_macro_f1": 0.5611750630339526,
+  "test_per_class_f1": {
+    "xylotrechus": 0.48148148148148145,
+    "aphids": 0.7191011235955056,
+    "leafhoppers": 0.5735294117647058,
+    "spider_mite": 0.47058823529411764
+  },
+  "quality_gate": {
+    "xylotrechus": {
+      "f1": 0.48148148148148145,
+      "status": "UNSAFE"
+    },
+    "aphids": {
+      "f1": 0.7191011235955056,
+      "status": "SAFE"
+    },
+    "leafhoppers": {
+      "f1": 0.5735294117647058,
+      "status": "UNSAFE"
+    },
+    "spider_mite": {
+      "f1": 0.47058823529411764,
+      "status": "UNSAFE"
+    }
+  },
+  "data_meta": {
+    "train_size": 986,
+    "val_size": 209,
+    "test_size": 209,
+    "has_rare_classes": false,
+    "class_train_counts": {
+      "xylotrechus": 208,
+      "aphids": 190,
+      "leafhoppers": 397,
+      "spider_mite": 191
+    },
+    "class_val_counts": {
+      "xylotrechus": 44,
+      "aphids": 40,
+      "leafhoppers": 85,
+      "spider_mite": 40
+    },
+    "class_test_counts": {
+      "xylotrechus": 44,
+      "aphids": 40,
+      "leafhoppers": 85,
+      "spider_mite": 40
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.8146334787209829,
+      "train_acc": 0.25,
+      "val_loss": 0.8400578196539262,
+      "val_acc": 0.19138755980861244,
+      "val_macro_f1": 0.08032128514056225,
+      "val_per_class_f1": {
+        "xylotrechus": 0.0,
+        "aphids": 0.321285140562249,
+        "leafhoppers": 0.0,
+        "spider_mite": 0.0
+      },
+      "lr_backbone": 1.99803659478613e-06,
+      "lr_head": 0.0003996053555520122
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.8085214694341024,
+      "train_acc": 0.25833333333333336,
+      "val_loss": 0.8090184969765147,
+      "val_acc": 0.21052631578947367,
+      "val_macro_f1": 0.08764940239043825,
+      "val_per_class_f1": {
+        "xylotrechus": 0.350597609561753,
+        "aphids": 0.0,
+        "leafhoppers": 0.0,
+        "spider_mite": 0.0
+      },
+      "lr_backbone": 1.9921541278079054e-06,
+      "lr_head": 0.000398422979689389
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.7978193163871765,
+      "train_acc": 0.28541666666666665,
+      "val_loss": 0.7578622288110723,
+      "val_acc": 0.40669856459330145,
+      "val_macro_f1": 0.1445578231292517,
+      "val_per_class_f1": {
+        "xylotrechus": 0.0,
+        "aphids": 0.0,
+        "leafhoppers": 0.5782312925170068,
+        "spider_mite": 0.0
+      },
+      "lr_backbone": 1.9823758144750453e-06,
+      "lr_head": 0.0003964575387094841
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.811750340461731,
+      "train_acc": 0.25625,
+      "val_loss": 0.7428628722446387,
+      "val_acc": 0.40669856459330145,
+      "val_macro_f1": 0.1445578231292517,
+      "val_per_class_f1": {
+        "xylotrechus": 0.0,
+        "aphids": 0.0,
+        "leafhoppers": 0.5782312925170068,
+        "spider_mite": 0.0
+      },
+      "lr_backbone": 1.9687402453229877e-06,
+      "lr_head": 0.00039371678930992055
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.7982909957567851,
+      "train_acc": 0.25,
+      "val_loss": 0.7700443196524843,
+      "val_acc": 0.21052631578947367,
+      "val_macro_f1": 0.08695652173913043,
+      "val_per_class_f1": {
+        "xylotrechus": 0.34782608695652173,
+        "aphids": 0.0,
+        "leafhoppers": 0.0,
+        "spider_mite": 0.0
+      },
+      "lr_backbone": 1.9513012337136778e-06,
+      "lr_head": 0.0003902115479764492
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.7982144852479299,
+      "train_acc": 0.25,
+      "val_loss": 0.7721200057764372,
+      "val_acc": 0.215311004784689,
+      "val_macro_f1": 0.0994967092528068,
+      "val_per_class_f1": {
+        "xylotrechus": 0.3492063492063492,
+        "aphids": 0.04878048780487805,
+        "leafhoppers": 0.0,
+        "spider_mite": 0.0
+      },
+      "lr_backbone": 1.93012760345881e-06,
+      "lr_head": 0.0003859556482952208
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.7791992644468944,
+      "train_acc": 0.29791666666666666,
+      "val_loss": 0.7464794465229272,
+      "val_acc": 0.4258373205741627,
+      "val_macro_f1": 0.2513272200772201,
+      "val_per_class_f1": {
+        "xylotrechus": 0.0,
+        "aphids": 0.4107142857142857,
+        "leafhoppers": 0.5945945945945946,
+        "spider_mite": 0.0
+      },
+      "lr_backbone": 1.9053029172036895e-06,
+      "lr_head": 0.00038096588635794156
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.7707899709542593,
+      "train_acc": 0.30104166666666665,
+      "val_loss": 0.7334089860961768,
+      "val_acc": 0.46411483253588515,
+      "val_macro_f1": 0.3579457726253553,
+      "val_per_class_f1": {
+        "xylotrechus": 0.35135135135135137,
+        "aphids": 0.4793388429752066,
+        "leafhoppers": 0.6010928961748634,
+        "spider_mite": 0.0
+      },
+      "lr_backbone": 1.8769251466436442e-06,
+      "lr_head": 0.00037526195447537243
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.765138570467631,
+      "train_acc": 0.30520833333333336,
+      "val_loss": 0.7215968473105909,
+      "val_acc": 0.507177033492823,
+      "val_macro_f1": 0.41345637223296794,
+      "val_per_class_f1": {
+        "xylotrechus": 0.4444444444444444,
+        "aphids": 0.5957446808510638,
+        "leafhoppers": 0.6136363636363636,
+        "spider_mite": 0.0
+      },
+      "lr_backbone": 1.845106285874505e-06,
+      "lr_head": 0.00036886636346077545
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.743986205259959,
+      "train_acc": 0.33229166666666665,
+      "val_loss": 0.7146463824801468,
+      "val_acc": 0.35406698564593303,
+      "val_macro_f1": 0.31966360856269116,
+      "val_per_class_f1": {
+        "xylotrechus": 0.16,
+        "aphids": 0.42857142857142855,
+        "leafhoppers": 0.3853211009174312,
+        "spider_mite": 0.3047619047619048
+      },
+      "lr_backbone": 1.8099719094030726e-06,
+      "lr_head": 0.00036180435379001754
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.7359353363513946,
+      "train_acc": 0.36666666666666664,
+      "val_loss": 0.6916706351001868,
+      "val_acc": 0.5023923444976076,
+      "val_macro_f1": 0.4791251093613298,
+      "val_per_class_f1": {
+        "xylotrechus": 0.4409448818897638,
+        "aphids": 0.5866666666666667,
+        "leafhoppers": 0.6388888888888888,
+        "spider_mite": 0.25
+      },
+      "lr_backbone": 1.7716606765619102e-06,
+      "lr_head": 0.0003541037959889439
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.7323409497737885,
+      "train_acc": 0.353125,
+      "val_loss": 0.6647340067836086,
+      "val_acc": 0.41626794258373206,
+      "val_macro_f1": 0.2624274971835947,
+      "val_per_class_f1": {
+        "xylotrechus": 0.4189189189189189,
+        "aphids": 0.04878048780487805,
+        "leafhoppers": 0.582010582010582,
+        "spider_mite": 0.0
+      },
+      "lr_backbone": 1.7303237842843043e-06,
+      "lr_head": 0.0003457950806411451
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.7246692458788554,
+      "train_acc": 0.3729166666666667,
+      "val_loss": 0.695539992391778,
+      "val_acc": 0.31100478468899523,
+      "val_macro_f1": 0.30561029009304874,
+      "val_per_class_f1": {
+        "xylotrechus": 0.42857142857142855,
+        "aphids": 0.4827586206896552,
+        "leafhoppers": 0.0,
+        "spider_mite": 0.3111111111111111
+      },
+      "lr_backbone": 1.6861243703990452e-06,
+      "lr_head": 0.00033691099845020804
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.7153821527957916,
+      "train_acc": 0.3572916666666667,
+      "val_loss": 0.6820416336424613,
+      "val_acc": 0.49760765550239233,
+      "val_macro_f1": 0.5042174796747968,
+      "val_per_class_f1": {
+        "xylotrechus": 0.4666666666666667,
+        "aphids": 0.6585365853658537,
+        "leafhoppers": 0.5166666666666667,
+        "spider_mite": 0.375
+      },
+      "lr_backbone": 1.639236869799946e-06,
+      "lr_head": 0.00032748661082978914
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.7031294703483582,
+      "train_acc": 0.40729166666666666,
+      "val_loss": 0.6809848056455549,
+      "val_acc": 0.4354066985645933,
+      "val_macro_f1": 0.3160178719122776,
+      "val_per_class_f1": {
+        "xylotrechus": 0.16,
+        "aphids": 0.43312101910828027,
+        "leafhoppers": 0.6265060240963856,
+        "spider_mite": 0.044444444444444446
+      },
+      "lr_backbone": 1.5898463260310109e-06,
+      "lr_head": 0.0003175591115322332
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.7133635719617207,
+      "train_acc": 0.37395833333333334,
+      "val_loss": 0.6702430855714533,
+      "val_acc": 0.3444976076555024,
+      "val_macro_f1": 0.34564711960733663,
+      "val_per_class_f1": {
+        "xylotrechus": 0.46938775510204084,
+        "aphids": 0.5714285714285714,
+        "leafhoppers": 0.0,
+        "spider_mite": 0.34177215189873417
+      },
+      "lr_backbone": 1.5381476610041015e-06,
+      "lr_head": 0.0003071676798618244
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.6851537168025971,
+      "train_acc": 0.40520833333333334,
+      "val_loss": 0.6559599532465045,
+      "val_acc": 0.3397129186602871,
+      "val_macro_f1": 0.3363060876668002,
+      "val_per_class_f1": {
+        "xylotrechus": 0.46511627906976744,
+        "aphids": 0.5396825396825397,
+        "leafhoppers": 0.0,
+        "spider_mite": 0.3404255319148936
+      },
+      "lr_backbone": 1.4843449057312066e-06,
+      "lr_head": 0.00029635332605197254
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.6899939994017283,
+      "train_acc": 0.4,
+      "val_loss": 0.6418029121234656,
+      "val_acc": 0.3492822966507177,
+      "val_macro_f1": 0.3521577584496759,
+      "val_per_class_f1": {
+        "xylotrechus": 0.449438202247191,
+        "aphids": 0.5822784810126582,
+        "leafhoppers": 0.023255813953488372,
+        "spider_mite": 0.35365853658536583
+      },
+      "lr_backbone": 1.4286503951072472e-06,
+      "lr_head": 0.0002851587294165567
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.691622132062912,
+      "train_acc": 0.4197916666666667,
+      "val_loss": 0.6523484336702448,
+      "val_acc": 0.3349282296650718,
+      "val_macro_f1": 0.3329802550390786,
+      "val_per_class_f1": {
+        "xylotrechus": 0.45454545454545453,
+        "aphids": 0.5538461538461539,
+        "leafhoppers": 0.0,
+        "spider_mite": 0.3235294117647059
+      },
+      "lr_backbone": 1.3712839299212546e-06,
+      "lr_head": 0.0002736280699141722
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.695566576719284,
+      "train_acc": 0.39791666666666664,
+      "val_loss": 0.6041667193316957,
+      "val_acc": 0.507177033492823,
+      "val_macro_f1": 0.4135907526151429,
+      "val_per_class_f1": {
+        "xylotrechus": 0.46464646464646464,
+        "aphids": 0.5945945945945946,
+        "leafhoppers": 0.5951219512195122,
+        "spider_mite": 0.0
+      },
+      "lr_backbone": 1.3124719094030725e-06,
+      "lr_head": 0.0002618068537900176
+    },
+    {
+      "epoch": 21,
+      "train_loss": 0.6893109560012818,
+      "train_acc": 0.38958333333333334,
+      "val_loss": 0.6238039552309866,
+      "val_acc": 0.49760765550239233,
+      "val_macro_f1": 0.5052392141130664,
+      "val_per_class_f1": {
+        "xylotrechus": 0.47368421052631576,
+        "aphids": 0.6233766233766234,
+        "leafhoppers": 0.5161290322580645,
+        "spider_mite": 0.4077669902912621
+      },
+      "lr_backbone": 1.25244643772903e-06,
+      "lr_head": 0.0002497417339835351
+    },
+    {
+      "epoch": 22,
+      "train_loss": 0.6869790573914846,
+      "train_acc": 0.38645833333333335,
+      "val_loss": 0.6200846162709323,
+      "val_acc": 0.5023923444976076,
+      "val_macro_f1": 0.42258492341918374,
+      "val_per_class_f1": {
+        "xylotrechus": 0.45161290322580644,
+        "aphids": 0.6410256410256411,
+        "leafhoppers": 0.5977011494252874,
+        "spider_mite": 0.0
+      },
+      "lr_backbone": 1.191444408012796e-06,
+      "lr_head": 0.000237480326010572
+    },
+    {
+      "epoch": 23,
+      "train_loss": 0.6722680648167928,
+      "train_acc": 0.4010416666666667,
+      "val_loss": 0.5947706074805922,
+      "val_acc": 0.5311004784688995,
+      "val_macro_f1": 0.43606393606393606,
+      "val_per_class_f1": {
+        "xylotrechus": 0.49523809523809526,
+        "aphids": 0.6233766233766234,
+        "leafhoppers": 0.6256410256410256,
+        "spider_mite": 0.0
+      },
+      "lr_backbone": 1.1297065673964827e-06,
+      "lr_head": 0.00022507102004669307
+    },
+    {
+      "epoch": 24,
+      "train_loss": 0.679435646533966,
+      "train_acc": 0.39791666666666664,
+      "val_loss": 0.6286172016956019,
+      "val_acc": 0.3684210526315789,
+      "val_macro_f1": 0.36765567765567764,
+      "val_per_class_f1": {
+        "xylotrechus": 0.49523809523809526,
+        "aphids": 0.6153846153846154,
+        "leafhoppers": 0.0,
+        "spider_mite": 0.36
+      },
+      "lr_backbone": 1.0674765669316666e-06,
+      "lr_head": 0.00021256278995326503
+    },
+    {
+      "epoch": 25,
+      "train_loss": 0.686910476287206,
+      "train_acc": 0.42291666666666666,
+      "val_loss": 0.6145153356511057,
+      "val_acc": 0.5454545454545454,
+      "val_macro_f1": 0.525382138360282,
+      "val_per_class_f1": {
+        "xylotrechus": 0.48214285714285715,
+        "aphids": 0.6511627906976745,
+        "leafhoppers": 0.6394557823129252,
+        "spider_mite": 0.3287671232876712
+      },
+      "lr_backbone": 1.0049999999999997e-06,
+      "lr_head": 0.00020000499999999998
+    },
+    {
+      "epoch": 26,
+      "train_loss": 0.6718201220035553,
+      "train_acc": 0.42916666666666664,
+      "val_loss": 0.594747610069348,
+      "val_acc": 0.5119617224880383,
+      "val_macro_f1": 0.4552174377911365,
+      "val_per_class_f1": {
+        "xylotrechus": 0.4576271186440678,
+        "aphids": 0.631578947368421,
+        "leafhoppers": 0.6162790697674418,
+        "spider_mite": 0.11538461538461539
+      },
+      "lr_backbone": 9.425234330683331e-07,
+      "lr_head": 0.00018744721004673495
+    },
+    {
+      "epoch": 27,
+      "train_loss": 0.633430673678716,
+      "train_acc": 0.46875,
+      "val_loss": 0.5984679831272107,
+      "val_acc": 0.5741626794258373,
+      "val_macro_f1": 0.5667683499957277,
+      "val_per_class_f1": {
+        "xylotrechus": 0.52,
+        "aphids": 0.6265060240963856,
+        "leafhoppers": 0.6524822695035462,
+        "spider_mite": 0.46808510638297873
+      },
+      "lr_backbone": 8.802934326035172e-07,
+      "lr_head": 0.00017493897995330695
+    },
+    {
+      "epoch": 28,
+      "train_loss": 0.6792751113573711,
+      "train_acc": 0.4010416666666667,
+      "val_loss": 0.6008195874223299,
+      "val_acc": 0.41626794258373206,
+      "val_macro_f1": 0.4292471958584987,
+      "val_per_class_f1": {
+        "xylotrechus": 0.47540983606557374,
+        "aphids": 0.631578947368421,
+        "leafhoppers": 0.26,
+        "spider_mite": 0.35
+      },
+      "lr_backbone": 8.185555919872039e-07,
+      "lr_head": 0.00016252967398942798
+    },
+    {
+      "epoch": 29,
+      "train_loss": 0.6628517727057139,
+      "train_acc": 0.43020833333333336,
+      "val_loss": 0.5852587570984398,
+      "val_acc": 0.5263157894736842,
+      "val_macro_f1": 0.4348864746455108,
+      "val_per_class_f1": {
+        "xylotrechus": 0.4727272727272727,
+        "aphids": 0.6506024096385542,
+        "leafhoppers": 0.6162162162162163,
+        "spider_mite": 0.0
+      },
+      "lr_backbone": 7.575535622709694e-07,
+      "lr_head": 0.00015026826601646483
+    },
+    {
+      "epoch": 30,
+      "train_loss": 0.6502705097198487,
+      "train_acc": 0.44479166666666664,
+      "val_loss": 0.608945154972624,
+      "val_acc": 0.4019138755980861,
+      "val_macro_f1": 0.4038280644589055,
+      "val_per_class_f1": {
+        "xylotrechus": 0.5046728971962616,
+        "aphids": 0.6590909090909091,
+        "leafhoppers": 0.08791208791208792,
+        "spider_mite": 0.36363636363636365
+      },
+      "lr_backbone": 6.975280905969277e-07,
+      "lr_head": 0.00013820314620998243
+    },
+    {
+      "epoch": 31,
+      "train_loss": 0.6432329257329304,
+      "train_acc": 0.4322916666666667,
+      "val_loss": 0.5740233959193435,
+      "val_acc": 0.5454545454545454,
+      "val_macro_f1": 0.4693050193050193,
+      "val_per_class_f1": {
+        "xylotrechus": 0.49523809523809526,
+        "aphids": 0.65,
+        "leafhoppers": 0.6486486486486487,
+        "spider_mite": 0.08333333333333333
+      },
+      "lr_backbone": 6.387160700787458e-07,
+      "lr_head": 0.00012638193008582786
+    },
+    {
+      "epoch": 32,
+      "train_loss": 0.6591035723686218,
+      "train_acc": 0.428125,
+      "val_loss": 0.5917547199714697,
+      "val_acc": 0.5311004784688995,
+      "val_macro_f1": 0.5236969168302585,
+      "val_per_class_f1": {
+        "xylotrechus": 0.46956521739130436,
+        "aphids": 0.6746987951807228,
+        "leafhoppers": 0.5915492957746479,
+        "spider_mite": 0.358974358974359
+      },
+      "lr_backbone": 5.813496048927527e-07,
+      "lr_head": 0.00011485127058344327
+    },
+    {
+      "epoch": 33,
+      "train_loss": 0.6525187452634176,
+      "train_acc": 0.40729166666666666,
+      "val_loss": 0.5859180266777294,
+      "val_acc": 0.5502392344497608,
+      "val_macro_f1": 0.5412574734631236,
+      "val_per_class_f1": {
+        "xylotrechus": 0.48598130841121495,
+        "aphids": 0.6428571428571429,
+        "leafhoppers": 0.6164383561643836,
+        "spider_mite": 0.41975308641975306
+      },
+      "lr_backbone": 5.256550942687931e-07,
+      "lr_head": 0.0001036566739480274
+    },
+    {
+      "epoch": 34,
+      "train_loss": 0.636265363295873,
+      "train_acc": 0.4510416666666667,
+      "val_loss": 0.5718011154512469,
+      "val_acc": 0.5502392344497608,
+      "val_macro_f1": 0.478850022097485,
+      "val_per_class_f1": {
+        "xylotrechus": 0.49523809523809526,
+        "aphids": 0.6419753086419753,
+        "leafhoppers": 0.6557377049180327,
+        "spider_mite": 0.12244897959183673
+      },
+      "lr_backbone": 4.718523389958981e-07,
+      "lr_head": 9.28423201381755e-05
+    },
+    {
+      "epoch": 35,
+      "train_loss": 0.6762832144896189,
+      "train_acc": 0.41875,
+      "val_loss": 0.5788320896157808,
+      "val_acc": 0.569377990430622,
+      "val_macro_f1": 0.5429489970864494,
+      "val_per_class_f1": {
+        "xylotrechus": 0.52,
+        "aphids": 0.6511627906976745,
+        "leafhoppers": 0.6424242424242425,
+        "spider_mite": 0.3582089552238806
+      },
+      "lr_backbone": 4.201536739689893e-07,
+      "lr_head": 8.245088846776683e-05
+    }
+  ]
+}

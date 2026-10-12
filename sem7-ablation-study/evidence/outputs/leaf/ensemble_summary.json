@@ -1,0 +1,20 @@
+{
+  "ensemble_seeds": [
+    42,
+    123,
+    456
+  ],
+  "class_names": [
+    "Apple_Mosaic",
+    "Apple___Black_rot",
+    "Alternaria",
+    "Healthy"
+  ],
+  "per_seed_test_f1": {
+    "42": 0.996561609332538,
+    "123": 0.9914993158485527,
+    "456": 0.9914993158485527
+  },
+  "mean_test_f1": 0.9931867470098812,
+  "soft_labels_csv": "/home/CL407-33/Downloads/BTechProject-20260806T081318Z-1-001/BTechProject/outputs/leaf/leaf_soft_labels.csv"
+}

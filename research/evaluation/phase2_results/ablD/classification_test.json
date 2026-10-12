@@ -1,0 +1,90 @@
+{
+  "split": "test",
+  "n": {
+    "leaf": 623,
+    "pest": 225,
+    "fruit": 232
+  },
+  "accuracy": {
+    "leaf": 0.9984,
+    "pest": 1.0,
+    "fruit": 0.9483
+  },
+  "macro_f1": {
+    "leaf": 0.9982,
+    "pest": 1.0,
+    "fruit": 0.6247
+  },
+  "leaf": {
+    "Apple_Mosaic": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 101
+    },
+    "Apple___Black_rot": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 103
+    },
+    "Alternaria": {
+      "precision": 0.989,
+      "recall": 1.0,
+      "f1": 0.9945,
+      "support": 90
+    },
+    "Healthy": {
+      "precision": 1.0,
+      "recall": 0.997,
+      "f1": 0.9985,
+      "support": 329
+    }
+  },
+  "pest": {
+    "xylotrechus": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 52
+    },
+    "aphids": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 51
+    },
+    "leafhoppers": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 82
+    },
+    "spider_mite": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 40
+    }
+  },
+  "fruit": {
+    "Anthracnose": {
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "support": 55
+    },
+    "Black Rot": {
+      "precision": 1.0,
+      "recall": 0.9322,
+      "f1": 0.9649,
+      "support": 177
+    },
+    "Healthy": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0
+    }
+  }
+}
