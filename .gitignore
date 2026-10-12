@@ -24,8 +24,6 @@ runs/detect/val_batch*/
 *.mp4
 *.zip
 *.tif
-bench/
-bench_v2/
 green_ov/
 yolo_clean_v3/
 split/
