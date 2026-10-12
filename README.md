@@ -100,15 +100,10 @@ python sem7-proposed-model/verify_backbone.py
 python sem7-proposed-model/run_student.py --help
 ```
 
-## How to submit
+## Pushed to GitHub
 
-The repository is already a git repo (branch `main`). To publish it as a private
-submission repo and link the Drive:
-
-```bash
-cd E:\Projects\AgriCNXEdge
-gh repo create AgriCNXEdge --private --source=. --remote=origin --push
-```
-
+Live at `github.com/AaryaBalwadkar/AgriCNXEdge` (branch `main`). Keep it **private**
+for submission: repo Settings → Danger Zone → Change visibility → Make private.
 Then add the Drive link (`AgriCNXEdge-Drive`, URL at the top) to the repo's About
-section. Open issues: see `KNOWN-GAPS.md`.
+section. Later changes: edit, `git add -A`, `git commit -m "..."`, `git push`.
+Open issues: see `KNOWN-GAPS.md`.
