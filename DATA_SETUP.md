@@ -5,6 +5,29 @@ This repo keeps **code + small evidence** (~50 MB). Everything below stays on yo
 table gives **old source path → new local target path** so you can add them manually
 for local runs without committing them.
 
+## Verified Drive inventory (checked online 2026-10-12 via public embed view)
+
+- Drive 1 `BTechProject` — https://drive.google.com/drive/folders/1VIScZ5jnB5VhGMnVm5VQ7MXNPC1VJz2t?usp=sharing
+  Root: `__pycache__/ models/ not_used/ old/ outputs/ runs/ scripts/ venv/` + 12 root `.py` +
+  `run_ablations.sh`, `yolo26n.pt`, `yolo26s.pt`. `models/` = Ablation, Ablation Frozen Backbone,
+  PDDD Fruit 1, PDDD Fruit 3 and PDDD Leaf 1, PDDD Pest 1, phase2_results, Proposed Model,
+  YOLO26s ×3, `phase2_eval.py`. `outputs/` = Ablation, Ablation Frozen Backbone, fruit, leaf,
+  pest, Proposed Model, student, try1, yield.
+- Drive 1 → Proposed Model — `data/{fruit,leaf,pest,yield,yield_enhanced,yield_mixed}/`,
+  `weights/{dinov3_convnext_tiny_pretrain_lvd1689m-21b726bb.pth, convnext_small-model-99.pth}`,
+  `student/{adc_student.onnx, q1_*.pdf, training_history.json, yield_eval.json}`,
+  `student/checkpoints/{latest_checkpoint.pth}`. `outputs/student/` = same set + `visual_eval/`.
+- Drive 2 `data processing` — https://drive.google.com/drive/folders/1ZtoJ5zgvGNBjk-hyRmXoq7zuIMcQFILX?usp=sharing
+  Only `data_prep/` + `final_dataset/{images,labels,meta,splits,teacher_outputs}/`.
+- Drive 3 `AgroScan_YOLO_Dataset` — https://drive.google.com/drive/folders/1pvbIe-2JHZnBBbQ7UGk_tXkEXw6H96WJ?usp=drive_link
+  Only `images/`, `labels/`, `data.yaml`.
+- NOT found on any Drive (ask teammates — see bottom): `adc_student_full.onnx` (126,586,742 bytes),
+  `best_model.pth` (Proposed copy = 155,668,669 bytes; only `latest_checkpoint.pth` is on Drive),
+  any `*.mp4` video, Agroscan `checkpoints/*.pth`, `models/dinov3/*.pth`, `*.onnx/*.ort`.
+- Listing check only: names/dates verified, file *contents* not verified. If a file is
+  "distorted", compare its Drive-shown size against the byte counts in §A–B, or compare
+  SHA256 (`Get-FileHash`) with the local copies in `E:\Projects\`.
+
 ## A. Model weights (never commit; gitignored)
 
 | File (old location) | Size | Place manually at (new repo) | Used by |
