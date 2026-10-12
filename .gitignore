@@ -48,20 +48,6 @@ build/
 captures/
 *.hprof
 
-# ---> Papers / LaTeX build
-*.aux
-*.fdb_latexmk
-*.fls
-*.log
-*.out
-*.spl
-*.synctex.gz
-*.toc
-*.bbl
-*.blg
-btech-project-*.json
-sunny-nebula*
-
 # ---> OS / editor
 .DS_Store
 Thumbs.db

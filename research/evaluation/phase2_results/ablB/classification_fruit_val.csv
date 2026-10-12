@@ -1,4 +1,0 @@
-class,precision,recall,f1,support
-Anthracnose,0.6117,0.9265,0.7368,68
-Black Rot,0.9612,0.7561,0.8464,164
-Healthy,0.0,0.0,0.0,0

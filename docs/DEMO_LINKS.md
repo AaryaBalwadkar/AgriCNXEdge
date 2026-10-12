@@ -8,7 +8,7 @@ Videos and large files stay on Drive — never commit `*.mp4` or model/dataset f
 
 - `01-Weights/` — all `.onnx` / `.pth` / `.pt` files (list in `DATA_SETUP.md`).
 - `02-Datasets/` — `final_dataset/`, `sem7-variants/`, `yolo/`.
-- `03-YOLO-Teacher-Weights/`, `04-Videos-Demo/`, `05-Paper-Supplementary/` — to be added.
+- `03-YOLO-Teacher-Weights/`, `04-Videos-Demo/` — to be added.
 
 ## Videos (to be uploaded to `04-Videos-Demo/`)
 

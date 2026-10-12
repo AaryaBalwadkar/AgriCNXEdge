@@ -13,7 +13,7 @@ dataset files are not listed here — those are in `DATA_SETUP.md`.
 | A3 | `teachers/PDDD-Pest-1/teacher_train.py` + runner script | The pest teacher has only 3 of the usual 7–8 files | Copy from `teachers/PDDD-Fruit-1/` and adjust to the 6 pest classes |
 | A5 | `docs/DEMO_LINKS.md` (exists, links pending) | Videos live on Drive, not in git | Add the `04-Videos-Demo/` share links once uploaded |
 | A6 | Sem 6 `saved_model_dir/` + `.tflite` files | Phone quantization needs an intermediate export that was never run | Run export → `onnx2tf` → `quantize.py`, or record as future work |
-| A7 | `sem7-proposed-model/data/`, `weights/`, `sem7-ablation-study/data/` | Referenced by the configs but kept on Drive | Place per `DATA_SETUP.md`, or run `phase2_eval.py --stage-csvs` to auto-build the soft-label tables |
+| A7 | `sem7-proposed-model/data/`, `weights/`, `sem7-ablation-study/data/` | Referenced by the configs but kept on Drive | Place per `DATA_SETUP.md` |
 | A8 | Sem 6 `dinov3/` code folder | Deliberately excluded (third-party upstream project) | Install it separately and set `dinov3_repo_dir` in `config.py` (see C1) |
 
 Resolved: the missing Windows helper script (fixed by making `web/README.md`
@@ -40,8 +40,6 @@ PowerShell-only) and the deleted CI workflow (submission has no CI by decision).
 
 | # | File | Value |
 |---|---|---|
-| D1 | `research/journal-submission/main.tex` | Reviewer names, dataset links/licenses/dates, library versions, Zenodo DOI, and the GitHub URL after pushing — all marked TO-BE-INSERTED |
 | D2 | `web/ansible/inventory.ini`, `inventory.gcp.ini` | Server IP / user, only when deploying to a real machine |
 | D3 | `web/.env` (local copy of `.env.example`) | 5 settings; never committed |
-| D5 | `research/elsarticle/` vs `research/archive/` drafts | Choose one canonical draft before journal submission |
 | D6 | Repo About page + `docs/DEMO_LINKS.md` | Drive links after upload finishes |

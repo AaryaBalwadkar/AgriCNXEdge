@@ -1,9 +1,0 @@
-model=E:\Projects\BTechProjectmodels\Proposed Model\student\adc_student_full.onnx size_mb=120.72
-images=10 laptop_total_ms=14268 laptop_mean_ms=1427
-phone_MAE(all-zero)=4.300
-laptop_MAE@0.3=2.400
-laptop_MAE@0.1=1.400
-laptop_MAE@0.05=2.400
-laptop_MAE@0.01=10.300
-leaf_match=10/10 pest_match=10/10
-max_score per image = max(obj*cls) with CORRECT sigmoid; kotlin_inv_0.3 = count with inverted 1/(1+exp(+x)) at 0.3

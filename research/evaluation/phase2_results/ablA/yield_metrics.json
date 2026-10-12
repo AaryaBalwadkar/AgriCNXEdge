@@ -1,8 +1,0 @@
-{
-  "n_images": 400,
-  "mae": 3.08,
-  "rmse": 5.4397,
-  "pearson": 0.8602,
-  "r2": 0.6617,
-  "mean_signed_error": -2.25
-}

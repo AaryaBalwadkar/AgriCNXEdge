@@ -51,9 +51,9 @@ not uploaded. The Sem 7 `fruit/leaf/pest/` folders likewise duplicate it and are
 `BTechDemo.mp4`, `az_recorder_20260921_194127.mp4`, `az_recorder_20260921_194423.mp4`.
 Linked from `docs/DEMO_LINKS.md`; never committed.
 
-### `05-Paper-Supplementary/`
-Print-resolution figure TIFFs, `green_overlays/`, `phase2_overlays/`. Needed only for the
-final journal file submission, not for building the repo.
+### `05-Paper-Supplementary/` — removed from this submission
+Paper materials (TIFFs, overlays, drafts) are out of scope for this code-only repo.
+They remain in the old local folders; nothing is stored here.
 
 ## Generated locally (not on Drive, not in git)
 

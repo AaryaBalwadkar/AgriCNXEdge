@@ -1,5 +1,0 @@
-class,precision,recall,f1,support
-xylotrechus,0.9556,0.9556,0.9556,45
-aphids,1.0,1.0,1.0,48
-leafhoppers,0.977,0.977,0.977,87
-spider_mite,1.0,1.0,1.0,45
